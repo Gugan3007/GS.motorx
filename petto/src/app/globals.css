@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply bg-charcoal-900 text-gray-300 antialiased;
+}
+
+.container {
+  @apply mx-auto max-w-6xl px-6;
+}
+
+.btn {
+  @apply inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm transition-colors;
+}
+.btn-primary {
+  @apply btn border-gray-400/20 bg-gray-100/5 text-gray-100 hover:bg-gray-100/10;
+}
+.btn-ghost {
+  @apply btn border-transparent bg-transparent text-gray-300 hover:bg-gray-100/5;
+}
+
+.card {
+  @apply rounded-xl border border-gray-400/15 bg-gray-100/3 shadow-panel;
+}
+
+.navbar {
+  @apply sticky top-0 z-50 border-b border-gray-400/10 bg-charcoal-900/80 backdrop-blur-md;
+}
+
+.section-title {
+  @apply font-display text-2xl font-semibold text-gray-100;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  @apply bg-night-900 text-slate-100 min-h-screen antialiased;
+  background-image: radial-gradient(circle at 20% 20%, rgba(0, 217, 255, 0.1) 0, rgba(0, 0, 0, 0) 35%),
+    radial-gradient(circle at 80% 0%, rgba(255, 0, 110, 0.08) 0, rgba(0, 0, 0, 0) 40%),
+    linear-gradient(145deg, #0a0e1a 0%, #0f1526 80%);
+}
+
+.light body {
+  @apply bg-white text-slate-900;
+  background-image: radial-gradient(circle at 15% 15%, rgba(68, 255, 210, 0.12) 0, rgba(0, 0, 0, 0) 35%),
+    radial-gradient(circle at 75% 0%, rgba(109, 220, 255, 0.12) 0, rgba(0, 0, 0, 0) 45%),
+    linear-gradient(140deg, #f7fbff 0%, #eef3ff 85%);
+}
+
+::selection {
+  background: rgba(109, 220, 255, 0.35);
+  color: #0a0a0f;
+}
+
+.glass-panel {
+  @apply bg-night-900/85 backdrop-blur-md border border-accent-cyan/25 shadow-card;
+}
+
+.card-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-sheen::before {
+  content: "";
+  position: absolute;
+  inset: -200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  animation: sheen 6s ease-in-out infinite;
+}
+
+@keyframes sheen {
+  0% {
+    transform: translateX(-40%);
+  }
+  100% {
+    transform: translateX(40%);
+  }
+}
+
+a {
+  @apply transition-colors duration-300;
+}
+
+.btn-primary {
+  @apply inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent-magenta via-accent-blue to-accent-cyan px-4 py-2 text-sm font-semibold text-white shadow-neon transition-transform duration-300 hover:scale-[1.05] active:translate-y-[1px];
+}
+
+.btn-ghost {
+  @apply inline-flex items-center gap-2 rounded-full border border-accent-cyan/50 bg-white/5 px-4 py-2 text-sm font-semibold text-accent-cyan shadow-glass transition hover:border-accent-cyan hover:bg-accent-cyan/10 hover:text-white;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.08));
+  background-size: 1400px 100%;
+  animation: shimmer 2.6s infinite linear;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6ddcff 0%, #44ffd2 50%, #ff3cac 100%);
+  border-radius: 9999px;
+}
